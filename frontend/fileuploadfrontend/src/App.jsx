@@ -51,6 +51,7 @@ export default function App() {
         // Use axios to upload the file with progress tracking
         const response = await axios.post('https://big-file-uploader.vercel.app/api/upload', formData, {
           headers: {
+            
             'Content-Type': 'multipart/form-data',
           },
           onUploadProgress: (progressEvent) => {
