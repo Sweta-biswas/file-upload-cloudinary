@@ -9,7 +9,7 @@ const cors = require("cors");
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['http://localhost:5173','https://file-upload-cloudinary-red.vercel.app/'];
 
 app.use(cors({
     origin: function (origin, callback) {
