@@ -49,7 +49,7 @@ export default function App() {
       
       try {
         // Use axios to upload the file with progress tracking
-        const response = await axios.post('http://localhost:5000/api/upload', formData, {
+        const response = await axios.post('https://big-file-uploader-k661jqgrr-sweta-biswas-projects.vercel.app/api/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

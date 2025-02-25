@@ -31,12 +31,11 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = './uploads';
+    const uploadDir = '/tmp/uploads'; // Changed to /tmp directory
     if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir);
+      fs.mkdirSync(uploadDir, { recursive: true }); // Ensure directory creation
     }
     cb(null, uploadDir);
   },
@@ -55,6 +54,9 @@ const upload = multer({
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // API endpoint for file upload
+app.get('/',(req,res)=> {
+  console.log("Hello");
+})
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   try {
     if (!req.file) {
